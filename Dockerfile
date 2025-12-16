@@ -20,6 +20,11 @@ WORKDIR /app/OmniParser
 
 COPY weights/ ./weights/
 
+COPY download_models.py . 
+COPY gradio_demo.py .
+
+# RUN python download_models.py
+
 EXPOSE 8000
 
 CMD ["uvicorn", "gradio_demo:app", "--host", "0.0.0.0", "--port", "8000"]
